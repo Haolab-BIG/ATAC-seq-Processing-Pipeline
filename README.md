@@ -4,7 +4,7 @@ The ATAC-seq analysis pipeline processes raw FASTQ data through a series of step
 
 ## Workflow Diagram
 
-![](D:\RLK_database\project\数据来源\毕业\博士后\杂事\EasyOmics\ATAC_seq\picture\ATAC-seq_pipeline.png)
+![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/ATAC-seq_pipeline.png)
 
 ## Requirements
 
@@ -238,7 +238,7 @@ snakemake -s ATAC-seq.smk \
 dot -Tsvg > dag.svg
 ```
 
-![](D:\RLK_database\project\数据来源\毕业\博士后\杂事\EasyOmics\ATAC_seq\picture\dag.png)
+![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/dag.png)
 ### 5. Check the current working directory
 
 The initial working structure for snakemake in /mnt/liuq/test/singularity/:
@@ -466,7 +466,7 @@ After the pipeline completes, the output directory will contain several files an
   
    - **General Statistics**: A combined table summarizing important metrics for each sample:
   
-   ![](D:\RLK_database\project\数据来源\毕业\博士后\杂事\EasyOmics\ATAC_seq\picture\general_statistic.png)
+   ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/general_statistic.png)
    - **FastQC**: Quality-control metrics on raw and trimmed reads, including  
   'Sequence Counts', 'Sequence Quality Histograms', 'Per Sequence Quality Scores',  
    'Per Base Sequence Content', 'Per Sequence GC Content', 'Per Base N Content',  
@@ -476,11 +476,11 @@ After the pipeline completes, the output directory will contain several files an
    - **Sequence Quality Histograms**: The mean quality value across each base position in the read. 
   
   
-   ![](D:\RLK_database\project\数据来源\毕业\博士后\杂事\EasyOmics\ATAC_seq\picture\fastqc_per_base_sequence_quality_plot (1).png)
+   ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/fastqc_per_base_sequence_quality_plot.png)
   
   - **Adapter Content**: The cumulative percentage count of the proportion of your library which has seen each of the adapter sequences at each position.  
   
-   ![](D:\RLK_database\project\数据来源\毕业\博士后\杂事\EasyOmics\ATAC_seq\picture\fastqc_per_sequence_quality_scores_plot.png)
+   ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/fastqc_per_sequence_quality_scores_plot.png)
   
 - **`fastqc.html(zip)`**
   
@@ -494,7 +494,7 @@ After the pipeline completes, the output directory will contain several files an
   
   - **Application**: Primarily used for visualization. You can load this file into a genome browser (e.g., IGV, UCSC Genome Browser) to see a "signal track" that shows chromatin opening levels visually across chromosomes. Highly chromatin opening will appear as peaks.
   
-   ![](D:\RLK_database\project\数据来源\毕业\博士后\杂事\EasyOmics\ATAC_seq\picture\track.png)
+   ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/track.png)
 
 - **`DiffBinding_significant.bed`**
   
@@ -508,7 +508,7 @@ After the pipeline completes, the output directory will contain several files an
   
   - **Application**: It is used to indicate which genes contain differential chromatin accessibility regions and the target genes of cis-regulatory elements located in chromatin accessibility regions.
   
-   ![](D:\RLK_database\project\数据来源\毕业\博士后\杂事\EasyOmics\ATAC_seq\picture\annotated_peak.png)
+   ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/annotated_peak.png)
 
 - **`enrichmentPlot_GO.pdf`**
   
@@ -517,7 +517,7 @@ After the pipeline completes, the output directory will contain several files an
   - **Application**:  This annotation implies the mechanism by which differential chromatin accessibility regions influence the phenotype about the case group relative to the control group.
   
 
-![](D:\RLK_database\project\数据来源\毕业\博士后\杂事\EasyOmics\ATAC_seq\picture\enrichmentPlot_GO.png)
+![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/enrichmentPlot_GO.png)
 
   
 
@@ -527,7 +527,7 @@ After the pipeline completes, the output directory will contain several files an
   - **Application**:  Similar to GO annotations,This annotation implies the mechanism by which differential chromatin accessibility regions influence the phenotype about the case group relative to the control group.
   
 
-![](D:\RLK_database\project\数据来源\毕业\博士后\杂事\EasyOmics\ATAC_seq\picture\enrichmentPlot_PATH.png)
+![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/enrichmentPlot_PATH.png)
 
 **`bindetect_results.txt`**
 
