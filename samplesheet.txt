@@ -1,0 +1,5 @@
+name   condition
+SRR13171471    control
+SRR13171472    control
+SRR13171473    test
+SRR13171474    test
