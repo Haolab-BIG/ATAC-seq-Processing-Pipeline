@@ -17,68 +17,68 @@ The ATAC-seq analysis pipeline processes raw FASTQ data through a series of step
 
  * **Step 1: Install System Dependencies**
 
-   ```bash
-   # Update package lists and install dependencies
-   sudo apt-get update
-   sudo apt-get install -y \
+```bash
+# Update package lists and install dependencies
+sudo apt-get update
+sudo apt-get install -y \
 build-essential \
 libseccomp-dev \
 libfuse3-dev \
 pkg-config \
 squashfs-tools \
 cryptsetup \
-   curl wget git
-   ```
+curl wget git
+```
 
  * **Step 2: Install Go Language**
 
-   ```bash
-   # Download and install Go
-   wget https://go.dev/dl/go1.21.3.linux-amd64.tar.gz
-   sudo tar -C /usr/local -xzvf go1.21.3.linux-amd64.tar.gz
-   rm go1.21.3.linux-amd64.tar.gz
+```bash
+# Download and install Go
+wget https://go.dev/dl/go1.21.3.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzvf go1.21.3.linux-amd64.tar.gz
+rm go1.21.3.linux-amd64.tar.gz
  
-   # Configure Go environment variables and apply them
-   echo 'export GOPATH=${HOME}/go' >> ~/.bashrc
-   echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc
-   source ~/.bashrc
-   ```
+# Configure Go environment variables and apply them
+echo 'export GOPATH=${HOME}/go' >> ~/.bashrc
+echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc
+source ~/.bashrc
+```
 
  * **Step 3: Download, Build, and Install Singularity**
 
-   ```bash
-   # Note: The script navigates to /mnt/share/software. 
-   # You can change this to your preferred directory for source code.
-   cd /mnt/share/software
+```bash
+# Note: The script navigates to /mnt/share/software. 
+# You can change this to your preferred directory for source code.
+cd /mnt/share/software
  
-   # Download the Singularity CE source code
-   wget https://github.com/sylabs/singularity/releases/download/v4.0.1/singularity-ce-4.0.1.tar.gz
+# Download the Singularity CE source code
+wget https://github.com/sylabs/singularity/releases/download/v4.0.1/singularity-ce-4.0.1.tar.gz
  
-   # Extract the archive and clean up
-   tar -xvzf singularity-ce-4.0.1.tar.gz
-   rm singularity-ce-4.0.1.tar.gz
-   cd singularity-ce-4.0.1
+# Extract the archive and clean up
+tar -xvzf singularity-ce-4.0.1.tar.gz
+rm singularity-ce-4.0.1.tar.gz
+cd singularity-ce-4.0.1
  
-   # Configure the build
-   ./mconfig
+# Configure the build
+./mconfig
  
-   # Build Singularity (this can be time-consuming)
-   cd builddir
-   make
+# Build Singularity (this can be time-consuming)
+cd builddir
+make
  
-   # Install Singularity to the system
-   sudo make install
-   ```
+# Install Singularity to the system
+sudo make install
+```
 
  * **Step 4: Verify the Installation**
 
-   ```bash
-   # Check the installed version
-   singularity --version
-   
-   # Display help information
-   singularity -h
-   ```
+```bash
+# Check the installed version
+singularity --version
+
+# Display help information
+singularity -h
+```
 3. **snakemake**: Must be installed on your system. Below are the detailed steps for installing on an Ubuntu 22.0.4 system. 
 
 ```bash
@@ -262,7 +262,7 @@ Before the pipeline, the input directory contain several files and directories. 
 │   └── samples
 │       ├── SRR13171471_R1.fastq.gz
 │       ├── SRR13171471_R2.fastq.gz
-│       ├── SRR13171472_R1.fastq.gz
+│    ├── SRR13171472_R1.fastq.gz
 │       ├── SRR13171472_R2.fastq.gz
 │       ├── SRR13171473_R1.fastq.gz
 │       ├── SRR13171473_R2.fastq.gz
@@ -291,7 +291,7 @@ Before the pipeline, the input directory contain several files and directories. 
 - **samplesheet.txt** — Experimental design table,describe the group of each sample.
 
   ```bash
-  name   condition
+  namecondition
   SRR13171471 control
   SRR13171472 control
   SRR13171473 test
@@ -462,25 +462,25 @@ After the pipeline completes, the output directory will contain several files an
 - **`multiqc_report.html`**
   Open multiqc_report.html in a web browser to explore all sections interactively.
   
-   - **Application**: This is the first file you should check to assess the overall quality of your sequencing data. It helps identify problematic samples (e.g., high duplication) .
+- **Application**: This is the first file you should check to assess the overall quality of your sequencing data. It helps identify problematic samples (e.g., high duplication) .
   
-   - **General Statistics**: A combined table summarizing important metrics for each sample:
+- **General Statistics**: A combined table summarizing important metrics for each sample:
   
-   ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/general_statistic.png)
-   - **FastQC**: Quality-control metrics on raw and trimmed reads, including  
+![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/general_statistic.png)
+- **FastQC**: Quality-control metrics on raw and trimmed reads, including  
   'Sequence Counts', 'Sequence Quality Histograms', 'Per Sequence Quality Scores',  
-   'Per Base Sequence Content', 'Per Sequence GC Content', 'Per Base N Content',  
-   'Sequence Length Distribution', 'Sequence Duplication Levels',  
-   'Overrepresented sequences by sample', 'Top overrepresented sequences', 'Adapter Content'.
+'Per Base Sequence Content', 'Per Sequence GC Content', 'Per Base N Content',  
+'Sequence Length Distribution', 'Sequence Duplication Levels',  
+'Overrepresented sequences by sample', 'Top overrepresented sequences', 'Adapter Content'.
 
-   - **Sequence Quality Histograms**: The mean quality value across each base position in the read. 
+- **Sequence Quality Histograms**: The mean quality value across each base position in the read. 
   
   
-   ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/fastqc_per_base_sequence_quality_plot.png)
+![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/fastqc_per_base_sequence_quality_plot.png)
   
   - **Adapter Content**: The cumulative percentage count of the proportion of your library which has seen each of the adapter sequences at each position.  
   
-   ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/fastqc_per_sequence_quality_scores_plot.png)
+![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/fastqc_per_sequence_quality_scores_plot.png)
   
 - **`fastqc.html(zip)`**
   
@@ -494,7 +494,7 @@ After the pipeline completes, the output directory will contain several files an
   
   - **Application**: Primarily used for visualization. You can load this file into a genome browser (e.g., IGV, UCSC Genome Browser) to see a "signal track" that shows chromatin opening levels visually across chromosomes. Highly chromatin opening will appear as peaks.
   
-   ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/track.png)
+![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/track.png)
 
 - **`DiffBinding_significant.bed`**
   
@@ -508,7 +508,7 @@ After the pipeline completes, the output directory will contain several files an
   
   - **Application**: It is used to indicate which genes contain differential chromatin accessibility regions and the target genes of cis-regulatory elements located in chromatin accessibility regions.
   
-   ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/annotated_peak.png)
+![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/annotated_peak.png)
 
 - **`enrichmentPlot_GO.pdf`**
   
@@ -536,12 +536,12 @@ After the pipeline completes, the output directory will contain several files an
 - **Application**:  This result reveals the transcription factors that cause the phenotypic differences between the case sample group and the control sample group, and these transcription factors can serve as targets for drug therapy.
 
 ```bash
-output_prefix   name    motif_id        cluster total_tfbs      KYSE30_footprints_mean_score    KYSE30_footprints_bound HET1A_footprints_mean_score     HET1A_footprints_bound  KYSE30_footprints_HET1A_footprints_change       KYSE30_footprints_HET1A_footprints_pvalue       KYSE30_footprints_HET1A_footprints_highlighted
-_AHR.H12CORE.0.P.B              AHR.H12CORE.0.P.B       C_      6       64795.36961     1       82612.82311     2       -1.67202        7.01272E-66     False
-_AHRR.H12CORE.0.P.C             AHRR.H12CORE.0.P.C      C_ZNF287        5       56837.34503     1       56710.89476     1       -0.8216 9.31477E-32     False
-_ALX1.H12CORE.0.SM.B            ALX1.H12CORE.0.SM.B     C_      2       51932.19363     0       35721.39629     0       0.23852 1.91053E-02     False
-_ALX3.H12CORE.0.SM.B            ALX3.H12CORE.0.SM.B     C_      5       60738.00209     1       104037.89701    3       -2.4982 2.74018E-73     False
-_ALX3.H12CORE.1.S.B             ALX3.H12CORE.1.S.B      C_      2       69028.88359     1       121701.66706    1       -3.63492        1.15582E-60     False
+output_prefixname motif_id  cluster total_tfbsKYSE30_footprints_mean_score KYSE30_footprints_bound HET1A_footprints_mean_score  HET1A_footprints_bound  KYSE30_footprints_HET1A_footprints_change KYSE30_footprints_HET1A_footprints_pvalue KYSE30_footprints_HET1A_footprints_highlighted
+_AHR.H12CORE.0.P.B  AHR.H12CORE.0.P.B C_6 64795.36961  1 82612.82311  2 -1.67202  7.01272E-66  False
+_AHRR.H12CORE.0.P.C AHRR.H12CORE.0.P.CC_ZNF287  5 56837.34503  1 56710.89476  1 -0.8216 9.31477E-32  False
+_ALX1.H12CORE.0.SM.BALX1.H12CORE.0.SM.B  C_2 51932.19363  0 35721.39629  0 0.23852 1.91053E-02  False
+_ALX3.H12CORE.0.SM.BALX3.H12CORE.0.SM.B  C_5 60738.00209  1 104037.89701 3 -2.4982 2.74018E-73  False
+_ALX3.H12CORE.1.S.B ALX3.H12CORE.1.S.BC_2 69028.88359  1 121701.66706 1 -3.63492  1.15582E-60  False
 ```
 
 ## Video Tutorials
