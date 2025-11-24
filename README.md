@@ -321,20 +321,20 @@ After adding the corresponding parameters in config.yaml,you can execute the pip
 
 ```shell
 samples:
-KYSE30:
-SRR13171473: 
-R1 : "data/samples/SRR13171473_R1.fastq.gz"
-R2 : "data/samples/SRR13171473_R2.fastq.gz"
-SRR13171474: 
-R1 : "data/samples/SRR13171474_R1.fastq.gz"
-R2 : "data/samples/SRR13171474_R2.fastq.gz"
-HET1A:
-SRR13171471: 
-R1 : "data/samples/SRR13171471_R1.fastq.gz"
-R2 : "data/samples/SRR13171471_R2.fastq.gz"
-SRR13171472: 
-R1 : "data/samples/SRR13171472_R1.fastq.gz"
-R2 : "data/samples/SRR13171472_R2.fastq.gz"
+	KYSE30:
+		SRR13171473: 
+			R1 : "data/samples/SRR13171473_R1.fastq.gz"
+			R2 : "data/samples/SRR13171473_R2.fastq.gz"
+		SRR13171474: 
+			R1 : "data/samples/SRR13171474_R1.fastq.gz"
+			R2 : "data/samples/SRR13171474_R2.fastq.gz"
+	HET1A:
+		SRR13171471: 
+			R1 : "data/samples/SRR13171471_R1.fastq.gz"
+			R2 : "data/samples/SRR13171471_R2.fastq.gz"
+		SRR13171472: 
+			R1 : "data/samples/SRR13171472_R1.fastq.gz"
+			R2 : "data/samples/SRR13171472_R2.fastq.gz"
 fn_gtf : "data/gencode.v48.primary_assembly.annotation.gtf"
 fa_in : 'data/GRCh38.primary_assembly.genome.fa'
 BWA-MEM2IDX : "data/GRCh38.primary_assembly_genome.bwa-mem2_index/GRCh38.primary_assembly_genome.bwa-mem2_index"
@@ -466,22 +466,24 @@ After the pipeline completes, the output directory will contain several files an
   
 - **General Statistics**: A combined table summarizing important metrics for each sample:
   
+
 ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/general_statistic.png)
 - **FastQC**: Quality-control metrics on raw and trimmed reads, including  
   'Sequence Counts', 'Sequence Quality Histograms', 'Per Sequence Quality Scores',  
-'Per Base Sequence Content', 'Per Sequence GC Content', 'Per Base N Content',  
-'Sequence Length Distribution', 'Sequence Duplication Levels',  
-'Overrepresented sequences by sample', 'Top overrepresented sequences', 'Adapter Content'.
+  'Per Base Sequence Content', 'Per Sequence GC Content', 'Per Base N Content',  
+  'Sequence Length Distribution', 'Sequence Duplication Levels',  
+  'Overrepresented sequences by sample', 'Top overrepresented sequences', 'Adapter Content'.
 
 - **Sequence Quality Histograms**: The mean quality value across each base position in the read. 
   
   
+
 ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/fastqc_per_base_sequence_quality_plot.png)
-  
+
   - **Adapter Content**: The cumulative percentage count of the proportion of your library which has seen each of the adapter sequences at each position.  
-  
+
 ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/fastqc_per_sequence_quality_scores_plot.png)
-  
+
 - **`fastqc.html(zip)`**
   
   - **Content**: Open fastqc.html in a web browser to explore all sections interactively.Similar to the above multiqc results.
@@ -494,6 +496,7 @@ After the pipeline completes, the output directory will contain several files an
   
   - **Application**: Primarily used for visualization. You can load this file into a genome browser (e.g., IGV, UCSC Genome Browser) to see a "signal track" that shows chromatin opening levels visually across chromosomes. Highly chromatin opening will appear as peaks.
   
+
 ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/track.png)
 
 - **`DiffBinding_significant.bed`**
@@ -508,6 +511,7 @@ After the pipeline completes, the output directory will contain several files an
   
   - **Application**: It is used to indicate which genes contain differential chromatin accessibility regions and the target genes of cis-regulatory elements located in chromatin accessibility regions.
   
+
 ![](https://github.com/Haolab-BIG/ATAC-seq-Processing-Pipeline/raw/main/picture/annotated_peak.png)
 
 - **`enrichmentPlot_GO.pdf`**

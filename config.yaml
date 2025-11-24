@@ -1,22 +1,11 @@
 samples:
-    KYSE30:
-        SRR13171473: 
-            R1 : "data/samples/SRR13171473_R1.fastq.gz"
-            R2 : "data/samples/SRR13171473_R2.fastq.gz"
-        SRR13171474: 
-            R1 : "data/samples/SRR13171474_R1.fastq.gz"
-            R2 : "data/samples/SRR13171474_R2.fastq.gz"
-    HET1A:
-        SRR13171471: 
-            R1 : "data/samples/SRR13171471_R1.fastq.gz"
-            R2 : "data/samples/SRR13171471_R2.fastq.gz"
-        SRR13171472: 
-            R1 : "data/samples/SRR13171472_R1.fastq.gz"
-            R2 : "data/samples/SRR13171472_R2.fastq.gz"
+    SRR7537362: 
+        R1 : "data/samples/SRR7537362_R1.fastq.gz"
+        R2 : "data/samples/SRR7537362_R2.fastq.gz"
 fn_gtf : "data/gencode.v48.primary_assembly.annotation.gtf"
 fa_in : 'data/GRCh38.primary_assembly.genome.fa'
-BWA-MEM2IDX : "data/GRCh38.primary_assembly_genome.bwa-mem2_index/GRCh38.primary_assembly_genome.bwa-mem2_index"
+BWA-MEM2IDX : "data/GRCh38.primary_assembly.genome.bowtie2_index/GRCh38.primary_assembly.genome"
 home : "/mnt/liuq/test/singularity"
-container : "atacseq.sif"
+container : "dnaseseq.sif"
 all_motifs : "motifs/all_motifs.txt"
 species : "hsa"
