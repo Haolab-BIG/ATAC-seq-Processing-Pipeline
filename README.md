@@ -116,19 +116,10 @@ We require the following base files:
 
 ```bash
 # Download Genome FASTA
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.fna.gz
-
-# Download cDNA FASTA
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_rna.fna.gz
+wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_48/GRCh38.primary_assembly.genome.fa.gz
 
 # Download GTF Annotation
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.gtf.gz
-
-# Download GFF Annotation
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_genomic.gff.gz
-
-# Download feature table
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.40_GRCh38.p14/GCF_000001405.40_GRCh38.p14_feature_count.txt
+wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_48/gencode.v48.primary_assembly.annotation.gtf.gz
 
 # Unzip the files
 gunzip GRCh38.primary_assembly.genome.fa.gz
@@ -164,7 +155,7 @@ mv H12CORE_meme_format.meme  Homo_sapiens.meme  JASPAR2024_CORE_vertebrates_non-
 #### Format the MEME TF motifs data
 
 ```bash
-singularity exec atacseq.sif TOBIAS FormatMotifs --input $OUTDIR/motifs/individual --format pfm --task join --output $OUTDIR/motifs/all_motifs.txt
+singularity exec atacseq.sif TOBIAS FormatMotifs --input motifs/individual --format pfm --task join --output motifs/all_motifs.txt
 ```
 
 ### 3. Prepare the test fastq data
