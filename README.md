@@ -155,6 +155,7 @@ mv H12CORE_meme_format.meme  Homo_sapiens.meme  JASPAR2024_CORE_vertebrates_non-
 #### Format the MEME TF motifs data
 
 ```bash
+cd ..
 singularity exec atacseq.sif TOBIAS FormatMotifs --input motifs/individual --format pfm --task join --output motifs/all_motifs.txt
 ```
 
